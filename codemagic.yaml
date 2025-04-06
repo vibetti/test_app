@@ -1,0 +1,12 @@
+workflows:
+ android:
+   name:Android Workflow
+     environment:
+        flutter: stable
+         scripts:
+           -name: get dependences
+             script: flutter pub get
+              -name: build APK
+                script: flutter build apk
+                -artifacts:
+                -build/app/outputs/flutter-apk/app-realise.apk
