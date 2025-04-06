@@ -5,12 +5,16 @@ workflows:
      flutter: stable
    scripts:
      - name: Get dependencies
-       script:
+       script: |
          cd test_app 
          flutter pub get
      - name: build APK
-       script:
+       script: |
          cd test_app
-         flutter build apk  
+         flutter build apk 
+     - name: Debug output
+       script: |
+         echo "Listing APK folder..."
+         ls -al test_app/build/app/outputs/flutter-apk
    artifacts:
-     - build/app/outputs/flutter-apk/app-release.apk
+     - test_app/build/app/outputs/flutter-apk/*.apk
